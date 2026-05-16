@@ -30,7 +30,7 @@ export default function Upload() {
     if (file.size > FILE_SIZE_CONFIG.maxSizeBytes) {
       const fileSizeMB = (file.size / (1024 * 1024)).toFixed(2)
       toast.error(
-        `File size (${fileSizeMB}MB) exceeds the maximum limit of ${FILE_SIZE_CONFIG.maxSizeMB}MB. Please upload a smaller file.`
+        `File size (${fileSizeMB}MB) exceeds the maximum limit of ${FILE_SIZE_CONFIG.maxSizeMB}MB.`
       )
       return false
     }
