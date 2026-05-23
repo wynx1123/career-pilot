@@ -1,11 +1,11 @@
 import { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { formatDistanceToNow } from 'date-fns';
-import { 
-  Heart, 
-  MessageCircle, 
-  Share2, 
-  Bookmark, 
+import {
+  Heart,
+  MessageCircle,
+  Share2,
+  Bookmark,
   Eye,
   ChevronDown,
   ChevronUp
@@ -85,8 +85,8 @@ export default function PostCard({ post, currentUser, onLike, onCommentAdded }) 
             {/* Author Avatar */}
             <div className="w-10 h-10 rounded-full bg-gradient-to-br from-primary to-secondary flex items-center justify-center text-primary-foreground text-sm font-medium">
               {post.author.avatar ? (
-                <img 
-                  src={post.author.avatar} 
+                <img
+                  src={post.author.avatar}
                   alt={post.author.name}
                   className="w-full h-full rounded-full object-cover"
                 />
@@ -133,13 +133,13 @@ export default function PostCard({ post, currentUser, onLike, onCommentAdded }) 
         <h3 className="text-lg font-semibold text-foreground mb-2 line-clamp-2">
           {post.title}
         </h3>
-        
-        <div className="prose prose-sm max-w-none text-muted-foreground dark:prose-invert">
+
+        <div className="prose prose-sm max-w-none text-muted-foreground dark:prose-invert break-words overflow-hidden">
           {shouldTruncate && !showFullContent ? (
             <>
               <ReactMarkdown className="break-words">
-  {preview.content}
-</ReactMarkdown>
+                {preview.content}
+              </ReactMarkdown>
               <button
                 onClick={() => setShowFullContent(true)}
                 className="text-primary hover:text-primary/80 font-medium text-sm"
@@ -149,8 +149,8 @@ export default function PostCard({ post, currentUser, onLike, onCommentAdded }) 
             </>
           ) : (
             <ReactMarkdown className="break-words">
-  {post.content}
-</ReactMarkdown>
+              {post.content}
+            </ReactMarkdown>
           )}
         </div>
 
@@ -176,8 +176,8 @@ export default function PostCard({ post, currentUser, onLike, onCommentAdded }) 
             {post.attachments.map((att, index) => (
               <div key={index} className="flex-shrink-0">
                 {att.type?.startsWith('image/') ? (
-                  <img 
-                    src={att.url} 
+                  <img
+                    src={att.url}
                     alt={att.name}
                     className="max-h-48 rounded-lg"
                   />
@@ -203,20 +203,18 @@ export default function PostCard({ post, currentUser, onLike, onCommentAdded }) 
           {/* Like */}
           <button
             onClick={() => onLike(post.id || post._id)}
-            className={`flex items-center gap-1.5 text-sm transition-colors ${
-              isLiked ? 'text-red-500' : 'text-muted-foreground hover:text-red-500'
-            }`}
+            className={`flex items-center gap-1.5 text-sm transition-colors ${isLiked ? 'text-red-500' : 'text-muted-foreground hover:text-red-500'
+              }`}
           >
             <Heart className={`w-5 h-5 ${isLiked ? 'fill-current' : ''}`} />
             <span>{Math.max(0, post.likes?.length || post.likeCount || 0)}</span>
           </button>
 
           {/* Comments */}
-          <button 
+          <button
             onClick={() => setShowComments(!showComments)}
-            className={`flex items-center gap-1.5 text-sm transition-colors ${
-              showComments ? 'text-primary' : 'text-muted-foreground hover:text-primary'
-            }`}
+            className={`flex items-center gap-1.5 text-sm transition-colors ${showComments ? 'text-primary' : 'text-muted-foreground hover:text-primary'
+              }`}
           >
             <MessageCircle className={`w-5 h-5 ${showComments ? 'fill-primary/20' : ''}`} />
             <span>{commentCount}</span>
