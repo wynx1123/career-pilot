@@ -30,7 +30,7 @@ const CATEGORIES = [
 
 export default function PostsFeed() {
   const { user } = useAuth();
-  const { subscribe, subscribePosts, unsubscribePosts } = useSocket();
+  const { subscribe, subscribePosts, unsubscribePosts, isConnected } = useSocket();
   
   const [posts, setPosts] = useState([]);
   const [scheduledPosts, setScheduledPosts] = useState([]);
@@ -42,6 +42,7 @@ export default function PostsFeed() {
   const [searchQuery, setSearchQuery] = useState('');
   const [page, setPage] = useState(1);
   const [hasMore, setHasMore] = useState(true);
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   // Fetch posts on mount and when filters change
   useEffect(() => {
@@ -121,7 +122,11 @@ export default function PostsFeed() {
       const data = await communityApi.getPosts(params);
       
       if (loadMore) {
-        setPosts(prev => [...prev, ...data.posts]);
+        setPosts(prev => {
+          const existingIds = new Set(prev.map(p => p.id || p._id));
+          const newPosts = data.posts.filter(p => !existingIds.has(p.id || p._id));
+          return [...prev, ...newPosts];
+        });
         setPage(prev => prev + 1);
       } else {
         setPosts(data.posts);
@@ -145,21 +150,41 @@ export default function PostsFeed() {
   };
 
   const handleCreatePost = async (postData) => {
+    if (isSubmitting) return; // Prevent double-click submissions
+    setIsSubmitting(true);
     try {
       const data = await communityApi.createPost(postData);
       if (data.post.status === 'scheduled') {
-        setScheduledPosts(prev => [data.post, ...prev].sort(
-          (a, b) => new Date(a.scheduledAt) - new Date(b.scheduledAt)
-        ));
+        setScheduledPosts(prev => {
+          const postId = data.post.id || data.post._id;
+          if (prev.some(p => (p.id || p._id) === postId)) return prev;
+          return [data.post, ...prev].sort(
+            (a, b) => new Date(a.scheduledAt) - new Date(b.scheduledAt)
+          );
+        });
         setShowEditor(false);
         toast.success('Post scheduled successfully!');
       } else {
-        setPosts(prev => [data.post, ...prev]);
+        // When socket is connected, the backend emits 'new_post' via
+        // Socket.IO which the listener above will pick up. We skip
+        // inserting here to avoid the duplicate.
+        // When socket is NOT connected, insert directly as a fallback
+        // (the listener's dedup guard will prevent a duplicate if the
+        // socket reconnects and delivers the event later).
+        if (!isConnected) {
+          setPosts(prev => {
+            const postId = data.post.id || data.post._id;
+            if (prev.some(p => (p.id || p._id) === postId)) return prev;
+            return [data.post, ...prev];
+          });
+        }
         setShowEditor(false);
         toast.success('Post created successfully!');
       }
     } catch (error) {
       toast.error(error.message);
+    } finally {
+      setIsSubmitting(false);
     }
   };
 

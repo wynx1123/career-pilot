@@ -203,27 +203,38 @@ export default function PostCard({ post, currentUser, onLike, onCommentAdded, on
       {/* Attachments */}
       {post.attachments?.length > 0 && (
         <div className="px-4 pb-3">
-          <div className="flex gap-2 overflow-x-auto">
-            {post.attachments.map((att, index) => (
-              <div key={index} className="flex-shrink-0">
-                {att.type?.startsWith('image/') ? (
-                  <img 
-                    src={att.url} 
-                    alt={att.name}
-                    className="max-h-48 rounded-lg"
-                  />
-                ) : (
-                  <a
-                    href={att.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    className="flex items-center gap-2 px-3 py-2 bg-muted rounded-lg text-sm text-foreground"
-                  >
-                    📎 {att.name}
-                  </a>
-                )}
-              </div>
-            ))}
+          <div className="flex flex-wrap gap-3">
+            {post.attachments.map((att, index) => {
+              const ext = att.name?.split('.').pop().toLowerCase();
+              const icon = { pdf: '📄', doc: '📝', docx: '📝', ppt: '📊', pptx: '📊', txt: '📃', png: '🖼️', jpg: '🖼️', jpeg: '🖼️', gif: '🖼️', webp: '🖼️' }[ext] || '📎';
+
+              // If we have a url AND it's an image, show as <img>
+              if (att.type?.startsWith('image/') && att.url) {
+                return (
+                  <div key={index} className="flex-shrink-0">
+                    <img
+                      src={att.url}
+                      alt={att.name}
+                      className="max-h-64 rounded-xl border border-border object-cover"
+                    />
+                  </div>
+                );
+              }
+
+              // For everything else (docs, or images without url), show a clean attachment card
+              return (
+                <div
+                  key={index}
+                  className="flex items-center gap-3 px-4 py-3 bg-muted border border-border rounded-xl text-sm text-foreground"
+                >
+                  <span className="text-2xl flex-shrink-0">{icon}</span>
+                  <div className="min-w-0">
+                    <p className="font-medium truncate max-w-[200px]">{att.name}</p>
+                    <p className="text-xs text-muted-foreground uppercase">{ext} file</p>
+                  </div>
+                </div>
+              );
+            })}
           </div>
         </div>
       )}
