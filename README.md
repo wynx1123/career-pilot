@@ -7,7 +7,7 @@
   </p>
 
   <p align="center"> 
-    <a href="https://github.com/ishwari418/career-pilot/blob/main/LICENSE">
+    <a href="https://github.com/anurag3407/career-pilot/blob/main/LICENSE">
       <img src="https://img.shields.io/badge/License-MIT-0052CC?style=for-the-badge&logo=opensourceinitiative&logoColor=white" alt="License" />
     </a>
     <img src="https://img.shields.io/badge/Node.js-18+-0066FF?style=for-the-badge&logo=node.js&logoColor=white" alt="Node.js" />
@@ -176,7 +176,7 @@ We solve the modern job seeker's most painful challenges:
 
 ```bash
 # 1. Clone the repository
-git clone https://github.com/ishwari418/career-pilot.git
+git clone https://github.com/anurag3407/career-pilot.git
 cd career-pilot
 
 # 2. Install backend dependencies
@@ -315,7 +315,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 <br />
 
 <div align="center">
-  <a href="https://github.com/ishwari418/career-pilot/graphs/contributors">
-    <img src="https://contributors-img.web.app/image?repo=ishwari418/career-pilot" width="300" alt="Contributors" />
+  <a href="https://github.com/anurag3407/career-pilot/graphs/contributors">
+    <img src="https://contributors-img.web.app/image?repo=anurag3407/career-pilot" width="300" alt="Contributors" />
   </a>
 </div>
