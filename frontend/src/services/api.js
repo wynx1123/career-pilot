@@ -45,9 +45,9 @@ function parseRetryAfter(value) {
 
 // Helper to handle API responses
 async function handleResponse(response) {
-  let data;
-  const contentType = response.headers.get('content-type');
-  if (contentType && contentType.includes('application/json')) {
+  let data = null;
+  const contentType = response.headers.get('content-type') || '';
+  if (contentType.includes('application/json')) {
     try {
       data = await response.json();
     } catch (e) {
@@ -55,42 +55,29 @@ async function handleResponse(response) {
     }
   } else {
     try {
-      const text = await response.text();
-      data = { error: text || response.statusText };
+      data = { error: await response.text() };
     } catch (e) {
       data = { error: response.statusText };
     }
   }
 
   if (!response.ok) {
-    throw new Error((data && data.error) || `Server error (${response.status})`);
-  }
-  return data || {};
-  let data = null
-  const contentType = response.headers.get('content-type') || ''
-  if (contentType.includes('application/json')) {
-    data = await response.json()
-  } else {
-    data = { error: await response.text() }
-  }
-
-  if (!response.ok) {
-    const error = new Error(data.error || response.statusText || 'Something went wrong')
-    error.status = response.status
+    const error = new Error((data && data.error) || response.statusText || 'Something went wrong');
+    error.status = response.status;
 
     if (response.status === 429) {
-      error.retryAfter = parseRetryAfter(response.headers.get('retry-after'))
+      error.retryAfter = parseRetryAfter(response.headers.get('retry-after'));
       error.rateLimit = {
         limit: parseHeaderInt(response.headers.get('x-ratelimit-limit')),
         remaining: parseHeaderInt(response.headers.get('x-ratelimit-remaining')),
         reset: parseHeaderInt(response.headers.get('x-ratelimit-reset'))
-      }
+      };
     }
 
-    throw error
+    throw error;
   }
 
-  return data
+  return data || {};
 }
 
 // ============ AUTH API ============
