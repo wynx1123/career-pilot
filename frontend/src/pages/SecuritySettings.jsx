@@ -23,7 +23,7 @@ import { SkeletonPage } from '../components/ui/Skeleton'
 function SectionHeader({ icon: Icon, title, description }) {
   return (
     <div className="flex items-start gap-4 mb-6">
-      <div className="p-2.5 rounded-xl bg-indigo-500/10 border border-indigo-500/20 flex-shrink-0">
+      <div className="p-2.5 rounded-xl bg-indigo-500/10 border border-indigo-500/20 shrink-0">
         <Icon className="w-5 h-5 text-indigo-400" />
       </div>
       <div>
