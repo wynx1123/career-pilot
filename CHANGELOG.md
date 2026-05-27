@@ -1,3 +1,11 @@
+# [1.34.0](https://github.com/anurag3407/career-pilot/compare/v1.33.1...v1.34.0) (2026-05-27)
+
+
+### Features
+
+* implement Weather Mood portfolio template with time-of-day theming ([5685543](https://github.com/anurag3407/career-pilot/commit/56855431d6607d559d7c12c8d64680eb0f96d2ae))
+* register Weather Mood template in TemplateGallery ([bf7b91d](https://github.com/anurag3407/career-pilot/commit/bf7b91d1061a1e7704460124ed95dc02bfbb606b))
+
 ## [1.33.1](https://github.com/anurag3407/career-pilot/compare/v1.33.0...v1.33.1) (2026-05-27)
 
 
