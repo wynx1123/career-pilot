@@ -33,6 +33,7 @@ const ResumeBuilder = lazy(() => import('./pages/ResumeBuilder'));
 import TextToResume from './pages/TextToResume';
 import About from './components/portfolio/templates/Tech_Startup/About';
 import ChatbotPortfolio from "./components/portfolio/templates/Chatbot_Portfolio";
+import DayNightCycle from './components/portfolio/templates/Day_Night_Cycle/index.jsx';
 
 import JobTracker from './pages/JobTracker';
 const Community = lazy(() => import('./pages/Community'));
@@ -177,6 +178,7 @@ function AppRoutes() {
         {/* Template Gallery Route (Registered at /templates) */}
         <Route path="/templates" element={<TemplateGallery />} />
         <Route path="/templates/chatbot" element={<ChatbotPortfolio />} />
+        <Route path="/templates/day-night-cycle" element={<DayNightCycle />} />
         {/* Core Protected Routes */}
         <Route 
   path="/dashboard" 
