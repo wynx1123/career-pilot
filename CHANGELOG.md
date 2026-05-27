@@ -1,3 +1,16 @@
+# [1.33.0](https://github.com/anurag3407/career-pilot/compare/v1.32.0...v1.33.0) (2026-05-27)
+
+
+### Features
+
+* Add Day Night Cycle portfolio template ([a0b69a0](https://github.com/anurag3407/career-pilot/commit/a0b69a0b8021783336030a5490467d4cd18bc13e))
+* add geometric shapes portfolio template ([5c93629](https://github.com/anurag3407/career-pilot/commit/5c93629a4b82b226cc774355c617329d82a92134))
+* add reusable animated select component ([87db600](https://github.com/anurag3407/career-pilot/commit/87db6008da894395a764cb1aba677265d14b90ec))
+* implement code splitting for improved performance ([129f5d1](https://github.com/anurag3407/career-pilot/commit/129f5d1b2247e27941195d45a5ed7fae49e98b70))
+* implement Sound Reactive portfolio template ([9022840](https://github.com/anurag3407/career-pilot/commit/902284055a46309711bf84e7de160c2332a70df3))
+* improve theme consistency across profile, settings, and security pages ([1a2dd5a](https://github.com/anurag3407/career-pilot/commit/1a2dd5a183bc1859cac758ca4b089d0565d3393e))
+* **portfolio:** build complete Matte Clay portfolio template ([9a1413b](https://github.com/anurag3407/career-pilot/commit/9a1413b4a3ab659814d1161223b49a3d3a86d4a9))
+
 # [1.32.0](https://github.com/anurag3407/career-pilot/compare/v1.31.1...v1.32.0) (2026-05-26)
 
 
