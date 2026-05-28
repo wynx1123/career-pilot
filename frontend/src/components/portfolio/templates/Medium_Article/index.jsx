@@ -27,7 +27,7 @@ export default function MediumArticle() {
         >
           <img
             src={data.personal?.avatar}
-            alt={data.personal?.name}
+            alt={data.personal?.name || 'Profile avatar'}
             className="w-14 h-14 rounded-full object-cover"
           />
 
@@ -63,7 +63,7 @@ export default function MediumArticle() {
           transition={{ delay: 0.15, duration: 0.5 }}
           className="flex items-center gap-3 text-sm text-zinc-500 mb-10"
         >
-          <span>~ {data.stats?.yearsExperience || 5} years experience</span>
+          <span>~ {data.stats?.yearsExperience ?? 5} years experience</span>
           <span>•</span>
           <span>Career Pilot Portfolio</span>
         </motion.div>
@@ -124,7 +124,7 @@ export default function MediumArticle() {
                 <div className="overflow-hidden rounded-xl border border-zinc-200">
                   <img
                     src={project.image}
-                    alt={project.title}
+                    alt={project.title || 'Project preview'}
                     className="w-full h-full object-cover hover:scale-105 transition duration-300"
                   />
                 </div>
@@ -236,7 +236,7 @@ export default function MediumArticle() {
                 <div className="flex items-center gap-3">
                   <img
                     src={item.avatar}
-                    alt={item.name}
+                    alt={item.name || 'Testimonial author'}
                     className="w-10 h-10 rounded-full object-cover"
                   />
 
