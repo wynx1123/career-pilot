@@ -8,6 +8,7 @@ import Experience from './Experience';
 import Testimonials from './Testimonials';
 import Contact from './Contact';
 import data from '../../../../data/dummy_data.json';
+
 const PlayingCardsPortfolio = () => {
   const [isLoaded, setIsLoaded] = useState(false);
   const [activeSection, setActiveSection] = useState('home');
@@ -16,14 +17,12 @@ const PlayingCardsPortfolio = () => {
     setIsLoaded(true);
   }, []);
 
-  // Handle missing data
   if (!data || !data.personal) {
     return (
-      <div className="min-h-screen bg-gradient-to-br from-green-900 via-emerald-800 to-green-900 flex items-center justify-center">
+      <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 flex items-center justify-center">
         <div className="text-center text-white">
           <div className="text-6xl mb-4">🃟</div>
           <p className="text-xl">Loading portfolio data...</p>
-          <p className="text-sm mt-2 text-amber-300">Make sure dummy_data.json exists</p>
         </div>
       </div>
     );
@@ -40,15 +39,14 @@ const PlayingCardsPortfolio = () => {
   ];
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-green-900 via-emerald-800 to-green-900 relative overflow-x-hidden">
-      {/* Green Felt Table Pattern */}
-      <div className="fixed inset-0 opacity-20 pointer-events-none">
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_#2d5a27_2px,_transparent_2px)] bg-[size:32px_32px]"></div>
-        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_#1e3a1e_3px,_transparent_3px)] bg-[size:64px_64px]"></div>
+    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900 relative overflow-x-hidden">
+      {/* Background Pattern */}
+      <div className="fixed inset-0 opacity-10 pointer-events-none">
+        <div className="absolute inset-0 bg-[radial-gradient(circle_at_center,_white_1px,_transparent_1px)] bg-[size:32px_32px]"></div>
       </div>
 
       {/* Card Border Frame */}
-      <div className="fixed inset-4 border-2 border-amber-700/40 rounded-3xl pointer-events-none"></div>
+      <div className="fixed inset-4 border-2 border-purple-500/30 rounded-3xl pointer-events-none"></div>
       
       {/* Corner Decorations */}
       <div className="fixed top-6 left-6 text-7xl opacity-10 pointer-events-none">🃟</div>
@@ -58,7 +56,7 @@ const PlayingCardsPortfolio = () => {
 
       {/* Sticky Navigation */}
       <nav className="sticky top-4 z-50 max-w-7xl mx-auto px-4">
-        <div className="bg-white/95 backdrop-blur-md rounded-full shadow-xl p-2 flex flex-wrap justify-center gap-1 md:gap-2 border border-amber-700/30">
+        <div className="bg-white/10 backdrop-blur-md rounded-full shadow-xl p-2 flex flex-wrap justify-center gap-1 md:gap-2 border border-white/20">
           {sections.map((section) => (
             <button
               key={section.id}
@@ -71,8 +69,8 @@ const PlayingCardsPortfolio = () => {
               }}
               className={`px-3 md:px-5 py-2 rounded-full capitalize transition-all text-sm md:text-base flex items-center gap-1 md:gap-2 ${
                 activeSection === section.id
-                  ? 'bg-amber-700 text-white shadow-lg'
-                  : 'text-amber-800 hover:bg-amber-100'
+                  ? 'bg-purple-600 text-white shadow-lg'
+                  : 'text-white/70 hover:bg-white/20 hover:text-white'
               }`}
             >
               <span className="text-base md:text-lg">{section.icon}</span>
