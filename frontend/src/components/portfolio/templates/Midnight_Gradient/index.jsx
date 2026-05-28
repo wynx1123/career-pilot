@@ -113,7 +113,7 @@ function Hero() {
               <span className="relative inline-flex rounded-full h-2 w-2 bg-cyan-500"></span>
             </span>
             <span className="text-cyan-300 text-xs font-semibold uppercase tracking-wider">
-              {data.personal.availability ?? "Open for Opportunities"}
+              {data.personal.availability}
             </span>
           </div>
 
@@ -135,9 +135,7 @@ function Hero() {
 
           {/* Tagline */}
           <p className="text-gray-400 text-base md:text-lg max-w-xl leading-relaxed mb-8">
-            {data.personal.tagline ?? "Crafting high-performance digital experiences and elegant full-stack applications with beautiful UI architecture."}
-          </p>
-
+            {data.personal.tagline}
           {/* Action Buttons */}
           <div className="flex flex-wrap gap-4 mb-8">
             <a
@@ -239,7 +237,7 @@ function About() {
             </p>
             <div className="flex items-center gap-2.5 text-gray-400 text-sm">
               <MapPin size={16} className="text-cyan-400" />
-              <span>Based in {data.personal.location} — Open to Remote & Onsite roles worldwide.</span>
+              <span>Based in {data.personal.location}
             </div>
           </GlowingCard>
 
@@ -608,7 +606,7 @@ function Contact() {
         {/* Footer info & Copyright */}
         <div className="mt-16 text-center text-gray-500 text-xs border-t border-indigo-950/40 pt-8">
           <p className="tracking-wide">
-            © {new Date().getFullYear()} {data.personal.name}. Powered by Gemini & Career Pilot.
+            © {new Date().getFullYear()} {data.personal.name}.
           </p>
         </div>
       </div>
