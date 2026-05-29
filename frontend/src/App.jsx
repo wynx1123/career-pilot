@@ -100,19 +100,10 @@ import RouteErrorBoundary from './components/RouteErrorBoundary';
 // Hub Imports
 const GitHubDashboard = lazy(() => import('./pages/GitHubDashboard'));
 import ScrollToTop from "./components/ScrollToTop";
-const Login = lazy(() => import('./pages/Login'));
-const Register = lazy(() => import('./pages/Register'));
-const Upload = lazy(() => import('./pages/Upload'));
-const Enhance = lazy(() => import('./pages/Enhance'));
-const ResumeView = lazy(() => import('./pages/ResumeView'));
-const JobAlerts = lazy(() => import('./pages/JobAlerts'));
-const OpenRouterCallback = lazy(() => import('./pages/OpenRouterCallback'));
-const ResumeHub = lazy(() => import('./pages/hubs/ResumeHub'));
-const JobsHub = lazy(() => import('./pages/hubs/JobsHub'));
-const PortfolioHub = lazy(() => import('./pages/hubs/PortfolioHub'));
-const CareerGrowthHub = lazy(() => import('./pages/hubs/CareerGrowthHub'));
-const CommunityHub = lazy(() => import('./pages/hubs/CommunityHub'));
-const TestSocialLinks = lazy(() => import('./pages/TestSocialLinks'));
+import NorthernFjords from './components/portfolio/templates/Northern_Fjords';
+import RainforestCanopy from './components/portfolio/templates/Rainforest_Canopy/index.jsx';
+import Hero from './components/portfolio/templates/Magazine_Editorial/Hero';
+import TestSocialLinks from './pages/TestSocialLinks';
 
 import RainforestCanopy from './components/portfolio/templates/Rainforest_Canopy/index.jsx';
 
@@ -430,15 +421,7 @@ function AppRoutes() {
 }
 
 function App() {
-  return (
-    <ThemeProvider>
-      <AuthProvider>
-        <SocketProvider>
-          <AppRoutes />
-        </SocketProvider>
-      </AuthProvider>
-    </ThemeProvider>
-  );
+  return <Hero />;
 }
 
 export default App;
