@@ -66,6 +66,7 @@ import CareerGrowthHub from './pages/hubs/CareerGrowthHub';
 import CommunityHub from './pages/hubs/CommunityHub';
 const GitHubDashboard = lazy(() => import('./pages/GitHubDashboard'));
 import ScrollToTop from "./components/ScrollToTop";
+import NorthernFjords from './components/portfolio/templates/Northern_Fjords';
 import RainforestCanopy from './components/portfolio/templates/Rainforest_Canopy/index.jsx';
 import TestSocialLinks from './pages/TestSocialLinks';
 
@@ -176,13 +177,14 @@ function AppRoutes() {
 
         {/* Template Gallery Route (Registered at /templates) */}
         <Route path="/templates" element={<TemplateGallery />} />
- feat/liquid-glass-portfolio
+
         
 
         <Route path="/templates/chatbot" element={<ChatbotPortfolio />} />
-main
+
         <Route path="/templates/day-night-cycle" element={<DayNightCycle />} />
         <Route path="/templates/rainforest-canopy" element={<RainforestCanopy />} />
+        <Route path="/templates/northern-fjords" element={<NorthernFjords />} />
         {/* Core Protected Routes */}
         <Route 
   path="/dashboard" 
