@@ -1,3 +1,10 @@
+# [1.81.0](https://github.com/anurag3407/career-pilot/compare/v1.80.0...v1.81.0) (2026-05-29)
+
+
+### Features
+
+* Add Midnight Gradient portfolio template and fix compilation errors ([f909791](https://github.com/anurag3407/career-pilot/commit/f909791d59644093b049f06d111e32c97e767b72))
+
 # [1.80.0](https://github.com/anurag3407/career-pilot/compare/v1.79.1...v1.80.0) (2026-05-29)
 
 
