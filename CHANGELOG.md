@@ -1,3 +1,10 @@
+# [1.98.0](https://github.com/anurag3407/career-pilot/compare/v1.97.0...v1.98.0) (2026-05-30)
+
+
+### Features
+
+* refactor Home page layout and update component imports ([db1f621](https://github.com/anurag3407/career-pilot/commit/db1f62119fe3b45aef0f5311e028ed9c8865a438))
+
 # [1.97.0](https://github.com/anurag3407/career-pilot/compare/v1.96.0...v1.97.0) (2026-05-30)
 
 
