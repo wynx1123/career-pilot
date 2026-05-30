@@ -1,3 +1,10 @@
+# [1.107.0](https://github.com/anurag3407/career-pilot/compare/v1.106.0...v1.107.0) (2026-05-30)
+
+
+### Features
+
+* add Pixel Quest retro portfolio template closes [#1939](https://github.com/anurag3407/career-pilot/issues/1939) ([90ad937](https://github.com/anurag3407/career-pilot/commit/90ad9377a158d5356f4fc4dc83b7311cb8360652))
+
 # [1.106.0](https://github.com/anurag3407/career-pilot/compare/v1.105.0...v1.106.0) (2026-05-30)
 
 
