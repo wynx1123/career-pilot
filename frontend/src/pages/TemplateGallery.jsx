@@ -446,8 +446,6 @@ export default function TemplateGallery() {
         portfolioData={aiDraft}
       />
 
-
-
       {/* Liquid Glass */}
       <div className="mt-12">
         <div className="mb-4 flex items-center gap-3 px-1">
