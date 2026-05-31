@@ -6,6 +6,7 @@ import { useTheme } from "../hooks/useTheme";
 import { motion, AnimatePresence } from "framer-motion";
 import { Moon, Sun, ChevronDown, Check, Eye, Star, Sparkles } from "lucide-react";
 import SwissTypography from "../components/portfolio/templates/Swiss_Typography/index";
+import MemphisPop from "../components/portfolio/templates/Memphis_Pop/index";
 import LiquidGlass from "../components/portfolio/templates/Liquid_Glass/index";
 import MidnightGradient from "../components/portfolio/templates/Midnight_Gradient/index";
 import PlayingCardsPortfolio from "../components/portfolio/templates/Playing_Cards";
@@ -496,6 +497,24 @@ const [hoveredCard, setHoveredCard] = useState(null);
           <SwissTypography portfolioData={aiDraft} />
         </div>
       </div>
+      {/* Memphis Pop Theme */}
+      <div className="mt-12">
+        <div className="mb-4 flex items-center gap-3 px-1">
+          <span className="rounded-full bg-yellow-500/20 px-3 py-1 text-xs font-bold uppercase tracking-widest text-yellow-400 border border-yellow-500/30">
+            ★ NEW — Memphis Pop
+          </span>
+          <h2 className="text-lg font-semibold text-foreground/70">
+            Memphis Pop — Retro / Nostalgic Full Template
+          </h2>
+        </div>
+        <div
+          className="rounded-2xl border border-yellow-500/20"
+          style={{ height: 640, overflowY: "auto", overflowX: "hidden", transform: "translate(0)", position: "relative" }}
+        >
+          <MemphisPop />
+        </div>
+      </div>
+
       {/* Cherry Blossom Theme */}
       <div className="mt-12">
         <div className="mb-4 flex items-center gap-3 px-1">

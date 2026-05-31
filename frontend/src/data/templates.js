@@ -1205,13 +1205,14 @@ export const templates = [
     "id": "Memphis_Pop",
     "title": "Memphis Pop",
     "category": "Portfolio",
-    "colorScheme": "Dark",
-    "layout": "Grid",
-    "author": "System",
-    "views": 1100,
-    "rating": 4.5,
+    "colorScheme": "Colorful",
+    "layout": "Interactive",
+    "author": "Vexx",
+    "views": 2600,
+    "rating": 4.9,
     "image": "/template-previews/Memphis_Pop.png",
-    "createdAt": "2026-05-01"
+    "createdAt": "2026-05-31",
+    "isComplete": true
   },
   {
     "id": "Midnight_Gradient",
