@@ -10,6 +10,7 @@ import LiquidGlass from "../components/portfolio/templates/Liquid_Glass/index";
 import MidnightGradient from "../components/portfolio/templates/Midnight_Gradient/index";
 import PlayingCardsPortfolio from "../components/portfolio/templates/Playing_Cards";
 import CherryBlossom from "../components/portfolio/templates/Cherry_Blossom/index";
+import PsychedelicSwirl from "../components/portfolio/templates/Psychedelic_Swirl/index";
 import Navbar from '../components/Navbar'
 import { X } from "lucide-react";
 import { useSearchParams } from "react-router-dom";
@@ -508,9 +509,27 @@ const [hoveredCard, setHoveredCard] = useState(null);
           <CherryBlossom portfolioData={aiDraft} />
         </div>
       </div>
-      
+
+      {/* Psychedelic Swirl Theme */}
+      <div className="mt-12">
+        <div className="mb-4 flex items-center gap-3 px-1">
+          <span className="rounded-full bg-fuchsia-500/20 px-3 py-1 text-xs font-bold uppercase tracking-widest text-fuchsia-400 border border-fuchsia-500/30">
+            ✿ NEW — Psychedelic Swirl
+          </span>
+          <h2 className="text-lg font-semibold text-foreground/70">
+            Psychedelic Swirl — Retro / Nostalgic Full Template
+          </h2>
+        </div>
+        <div
+          className="rounded-2xl border border-fuchsia-500/20"
+          style={{ height: 640, overflowY: "auto", overflowX: "hidden", transform: "translate(0)", position: "relative" }}
+        >
+          <PsychedelicSwirl />
+        </div>
+      </div>
+
     </div>
-    
+
     </div>
   );
 }
