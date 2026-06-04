@@ -1,3 +1,12 @@
+# [1.143.0](https://github.com/anurag3407/career-pilot/compare/v1.142.0...v1.143.0) (2026-06-04)
+
+
+### Features
+
+* implement Floating Cubes portfolio template ([#1866](https://github.com/anurag3407/career-pilot/issues/1866)) ([bc5223a](https://github.com/anurag3407/career-pilot/commit/bc5223a3f98373c2d6c75f0034f839eb3406c0e0))
+* implement modular Crystal Cavern 3D portfolio template ([3d009c0](https://github.com/anurag3407/career-pilot/commit/3d009c098cc444d3e3ee1b2f6b6bc7311d6426ed))
+* **portfolio:** implement Stagger Grid template with strict scroll physics ([4c8ee7f](https://github.com/anurag3407/career-pilot/commit/4c8ee7f90a41c90455fa4de4d110f14bbd49daf7))
+
 # [1.142.0](https://github.com/anurag3407/career-pilot/compare/v1.141.0...v1.142.0) (2026-06-04)
 
 
