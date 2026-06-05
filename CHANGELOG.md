@@ -1,3 +1,19 @@
+# [1.162.0](https://github.com/anurag3407/career-pilot/compare/v1.161.0...v1.162.0) (2026-06-05)
+
+
+### Bug Fixes
+
+* convert to ESM, rename viteFinal hook, migrate to Vitest ([d513756](https://github.com/anurag3407/career-pilot/commit/d513756de52e4109571f319d33dca38d5cbf3f7f))
+* extract utils to test-utils.js, add edge case tests, remove Jest ([42fd8bc](https://github.com/anurag3407/career-pilot/commit/42fd8bc54fcf0e125af9c08f37a90a2d7911e2a3))
+* improve error handling, add RangeError checks, complete test coverage ([9b3cee6](https://github.com/anurag3407/career-pilot/commit/9b3cee6549a2cc9cb595567c1cab1563bcda6334))
+* move README.md to correct .storybook directory ([31dfb29](https://github.com/anurag3407/career-pilot/commit/31dfb29039708be9d92b7beefd86f1f6241ab44f))
+
+
+### Features
+
+* add visual regression testing setup with chromatic ([048d1c3](https://github.com/anurag3407/career-pilot/commit/048d1c3423ce4ea31d9533e09c7c9dd7dc38cc38))
+* add visual regression testing setup with Chromatic ([62ea3d2](https://github.com/anurag3407/career-pilot/commit/62ea3d26b6e9ebd585aab08817bdef09f82cdb25))
+
 # [1.161.0](https://github.com/anurag3407/career-pilot/compare/v1.160.0...v1.161.0) (2026-06-05)
 
 
