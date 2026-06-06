@@ -26,6 +26,7 @@ import ChromaticGlitch from "../components/portfolio/templates/Chromatic_Glitch/
 import MagneticDock from "../components/portfolio/templates/Magnetic_Dock/index";
 import { useSearchParams } from "react-router-dom";
 import MorphingBlobs from "../components/portfolio/templates/Morphing_Blobs/index";
+import InteractiveTableOfElements from "../components/portfolio/templates/Interactive_Table_of_Elements/index";
 
 /* TemplatePreviewFrame — contains each full portfolio template in a
    sandboxed scrollable box. The key trick: CSS `transform` on the outer
@@ -784,6 +785,20 @@ const [hoveredCard, setHoveredCard] = useState(null);
         <div className="rounded-2xl border border-indigo-500/15"
           style={{ height: 640, overflowY: "auto", overflowX: "hidden", transform: "translate(0)", position: "relative" }}>
           <MagneticDock />
+        </div>
+      </div>
+
+      {/* Interactive Table of Elements — sandboxed fixed-nav frame */}
+      <div className="mt-12">
+        <div className="mb-4 flex items-center gap-3 px-1">
+          <span className="rounded-full bg-sky-500/15 px-3 py-1 text-xs font-bold uppercase tracking-widest text-sky-400 border border-sky-500/25">
+            ⚗️ Periodic Table
+          </span>
+          <h2 className="text-lg font-semibold text-foreground/70">Interactive Table of Elements — Scientific Portfolio Layout</h2>
+        </div>
+        <div className="rounded-2xl border border-sky-500/15"
+          style={{ height: 640, overflowY: "auto", overflowX: "hidden", transform: "translate(0)", position: "relative" }}>
+          <InteractiveTableOfElements />
         </div>
       </div>
 
