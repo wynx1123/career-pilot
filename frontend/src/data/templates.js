@@ -27,6 +27,32 @@ export const templates = [
     "isComplete": true
   },
   {
+    "id": "Broken_Glass_Shards_Parallax",
+    "title": "Broken Glass Shards Parallax",
+    "category": "Portfolio",
+    "colorScheme": "Dark",
+    "layout": "Parallax",
+    "author": "System",
+    "views": 1000,
+    "rating": 5.0,
+    "image": "/templates/Broken_Glass_Shards_Parallax.png",
+    "createdAt": "2026-06-07",
+    "isComplete": true
+  },
+  {
+    "id": "Interactive_Table_of_Elements",
+    "title": "Interactive Table of Elements",
+    "category": "Portfolio",
+    "colorScheme": "Dark",
+    "layout": "Grid",
+    "author": "System",
+    "views": 1000,
+    "rating": 5.0,
+    "image": "/templates/Interactive_Table_of_Elements.png",
+    "createdAt": "2026-06-06",
+    "isComplete": true
+  },
+  {
   "id": "Vercel_Deploy",
   "title": "Vercel Deploy",
   "category": "Portfolio",
