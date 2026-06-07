@@ -149,7 +149,9 @@ const TemplateHeroPreview = ({ templateId, portfolioData }) => {
   if (!templateId) return null;
   return (
     <Suspense fallback={<div className="w-full h-full bg-muted/50" />}>
-      <Component portfolioData={portfolioData} />
+      <PortfolioProvider portfolioData={portfolioData}>
+        <Component portfolioData={portfolioData} />
+      </PortfolioProvider>
     </Suspense>
   );
 };
@@ -344,7 +346,11 @@ const TemplatePreviewModal = ({
             </div>
           }
         >
-          {Component && <Component portfolioData={portfolioData} />}
+          {Component && (
+            <PortfolioProvider portfolioData={portfolioData}>
+              <Component portfolioData={portfolioData} />
+            </PortfolioProvider>
+          )}
         </Suspense>
       </div>
     </div>
