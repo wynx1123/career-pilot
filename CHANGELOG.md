@@ -1,3 +1,10 @@
+# [1.206.0](https://github.com/anurag3407/career-pilot/compare/v1.205.0...v1.206.0) (2026-06-09)
+
+
+### Features
+
+* add AI cover letter generator using Groq API ([#3289](https://github.com/anurag3407/career-pilot/issues/3289)) ([a2b2a5e](https://github.com/anurag3407/career-pilot/commit/a2b2a5e48362b381cdc5a2584b1f7b3b858a499b))
+
 # [1.205.0](https://github.com/anurag3407/career-pilot/compare/v1.204.0...v1.205.0) (2026-06-09)
 
 
