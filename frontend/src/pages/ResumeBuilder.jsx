@@ -199,31 +199,34 @@ export default function ResumeBuilder() {
   foundKeywords.length
 ])
 
+// ─────────────────── CONSOLIDATED ATS ASSESSMENT LOOP ───────────────────
 useEffect(() => {
-    const resumeText = `
-      ${personal.summary}
-      ${skills}
-      ${projects.map(p => p.description).join(" ")}
-      ${experience.map(e => e.description).join(" ")}
-    `.toLowerCase()
+  // 1. Gather all inputs into a clean string representation
+  const resumeText = `${personal?.summary || ''} ${skills?.join(' ') || ''} ${
+    projects?.map(p => `${p.title} ${p.description}`).join(' ') || ''
+  } ${experience?.map(e => `${e.role} ${e.description}`).join(' ') || ''}`.toLowerCase();
 
-    const foundKeywords = keywords.filter(keyword =>
-      resumeText.includes(keyword.toLowerCase())
-    )
+  // 2. Define assessment target keywords (moved to component/effect scope correctly)
+  const baseKeywords = ["react", "node.js", "javascript", "typescript", "python", "docker", "aws", "git", "ci/cd", "rest api"];
+  const prioritySkills = ["docker", "kubernetes", "ci/cd", "aws", "linux"];
 
-    const missing = keywords.filter(
-      keyword => !foundKeywords.includes(keyword)
-    )
+  const found = baseKeywords.filter(keyword => resumeText.includes(keyword));
+  const missing = baseKeywords.filter(keyword => !resumeText.includes(keyword));
 
-    setMissingKeywords(missing)
-    setRecommendedSkills(missing.slice(0, 4))
+  // 3. State update calculations
+  setMissingKeywords(missing);
+  
+  // Prioritize missing crucial devops/infrastructure skills first in recommendation
+  const recommendations = [
+    ...prioritySkills.filter(sk => !found.includes(sk)),
+    ...missing
+  ].slice(0, 4);
+  setRecommendedSkills(recommendations);
 
-    if (keywords.length > 0) {
-      setAtsScore(
-        Math.round((foundKeywords.length / keywords.length) * 100)
-      )
-    }
-  }, [personal, skills, projects, experience])
+  const score = baseKeywords.length > 0 ? Math.round((found.length / baseKeywords.length) * 100) : 0;
+  setAtsScore(score);
+
+}, [personal, skills, projects, experience]); // Removed out-of-scope internal variables!
 
   // ─────────────────── Live Consistency Memoized Engine ───────────────────
   const activeConsistencyWarnings = React.useMemo(() => {
