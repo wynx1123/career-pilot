@@ -1,3 +1,18 @@
+# [1.210.0](https://github.com/anurag3407/career-pilot/compare/v1.209.0...v1.210.0) (2026-06-10)
+
+
+### Bug Fixes
+
+* address linter warnings and add JSDoc to MobileKanban ([32888a9](https://github.com/anurag3407/career-pilot/commit/32888a9d2e50b15b276946aa01dbf81f341109c4))
+* use undefined check for isControlled, add drag-and-drop tests ([dcb75fd](https://github.com/anurag3407/career-pilot/commit/dcb75fd95e19b5f995c65c43f6f6d4a0aed3662e))
+* use undefined check in useEffect guard for consistency with isControlled ([fc0286f](https://github.com/anurag3407/career-pilot/commit/fc0286f570b2d0c3f71412817ffcf6377ef2a225))
+
+
+### Features
+
+* add Magnifying Glass Hidden Reveal portfolio template ([#3225](https://github.com/anurag3407/career-pilot/issues/3225)) ([0e9bb3c](https://github.com/anurag3407/career-pilot/commit/0e9bb3cf58fbe602610ff29d54e662bc9e35e86c))
+* add touch-friendly MobileKanban component with DnD and offline support ([7703c5a](https://github.com/anurag3407/career-pilot/commit/7703c5ad2b6158d83964ac6a2b6431fe3c9e9655))
+
 # [1.209.0](https://github.com/anurag3407/career-pilot/compare/v1.208.0...v1.209.0) (2026-06-10)
 
 
