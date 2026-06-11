@@ -1,3 +1,10 @@
+# [1.215.0](https://github.com/anurag3407/career-pilot/compare/v1.214.0...v1.215.0) (2026-06-11)
+
+
+### Features
+
+* add Astronaut Spacesuit Helmet HUD template ([#3214](https://github.com/anurag3407/career-pilot/issues/3214)) ([4d15b36](https://github.com/anurag3407/career-pilot/commit/4d15b36e0b15690a80a7d404921e239bee8bee34))
+
 # [1.214.0](https://github.com/anurag3407/career-pilot/compare/v1.213.1...v1.214.0) (2026-06-10)
 
 
