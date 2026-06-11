@@ -1,3 +1,10 @@
+# [1.217.0](https://github.com/anurag3407/career-pilot/compare/v1.216.0...v1.217.0) (2026-06-11)
+
+
+### Features
+
+* **portfolio:** add Captcha Solver Portfolio Gate template ([9ed5f53](https://github.com/anurag3407/career-pilot/commit/9ed5f534a3880eb1fdf0315f517220417e646636))
+
 # [1.216.0](https://github.com/anurag3407/career-pilot/compare/v1.215.1...v1.216.0) (2026-06-11)
 
 
