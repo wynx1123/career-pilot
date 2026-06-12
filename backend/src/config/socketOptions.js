@@ -1,4 +1,10 @@
-const DEFAULT_FRONTEND_URL = 'http://localhost:5173';
+const DEFAULT_ALLOWED_ORIGINS = Object.freeze([
+  'http://localhost:5173',
+  'http://localhost:3000',
+  'https://careerpilotyy.netlify.app'
+]);
+
+const normalizeOrigin = (origin) => origin.replace(/\/$/, '');
 
 /**
  * Ordered Socket.IO transports.
@@ -6,26 +12,65 @@ const DEFAULT_FRONTEND_URL = 'http://localhost:5173';
  * Polling must be attempted first so clients can still connect through
  * networks or proxies that reject WebSocket upgrade requests.
  */
-export const SOCKET_TRANSPORTS = Object.freeze(['polling', 'websocket']);
+export const SOCKET_TRANSPORTS = Object.freeze([
+  'polling',
+  'websocket'
+]);
+
+/**
+ * Return the frontend origins supported by the REST API and Socket.IO.
+ */
+export const getAllowedSocketOrigins = () =>
+  [
+    ...new Set(
+      [...DEFAULT_ALLOWED_ORIGINS, process.env.FRONTEND_URL]
+        .filter(Boolean)
+        .map(normalizeOrigin)
+    )
+  ];
+
+/**
+ * Validate a Socket.IO handshake origin.
+ *
+ * Requests without an Origin header are allowed for non-browser clients and
+ * same-origin server-to-server requests.
+ */
+export const isSocketOriginAllowed = (
+  origin,
+  allowedOrigins = getAllowedSocketOrigins()
+) => {
+  if (!origin) {
+    return true;
+  }
+
+  return allowedOrigins.includes(normalizeOrigin(origin));
+};
 
 /**
  * Build the Socket.IO server configuration.
- *
- * Keeping this in a separate pure function makes the transport policy
- * independently testable without creating an HTTP or Socket.IO server.
  */
-export const createSocketOptions = () => ({
-  cors: {
-    origin: process.env.FRONTEND_URL || DEFAULT_FRONTEND_URL,
-    methods: ['GET', 'POST'],
-    credentials: true
-  },
+export const createSocketOptions = () => {
+  const allowedOrigins = getAllowedSocketOrigins();
 
-  // Start with HTTP long-polling and upgrade only when WebSocket is available.
-  transports: [...SOCKET_TRANSPORTS],
-  allowUpgrades: true,
+  return {
+    cors: {
+      origin: (origin, callback) => {
+        if (isSocketOriginAllowed(origin, allowedOrigins)) {
+          callback(null, true);
+          return;
+        }
 
-  // Preserve the existing heartbeat configuration.
-  pingTimeout: 60_000,
-  pingInterval: 25_000
-});
+        callback(new Error('Not allowed by CORS'));
+      },
+      methods: ['GET', 'POST'],
+      credentials: true
+    },
+
+    // Establish polling first and upgrade when WebSocket is available.
+    transports: [...SOCKET_TRANSPORTS],
+    allowUpgrades: true,
+
+    pingTimeout: 60_000,
+    pingInterval: 25_000
+  };
+};

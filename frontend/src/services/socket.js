@@ -7,70 +7,126 @@ const SOCKET_URL = import.meta.env.VITE_API_URL || 'http://localhost:5001';
 let socket = null;
 
 export const initializeSocket = async () => {
-  if (socket?.connected) {
+  /**
+   * Reuse the existing instance even when it is still connecting or currently
+   * reconnecting. Checking only socket.connected would allow concurrent calls
+   * to create multiple Socket.IO clients.
+   */
+  if (socket) {
     return socket;
   }
 
-  const user = auth.currentUser;
-  if (!user) {
-    console.warn('Cannot initialize socket: No authenticated user');
+  if (!auth.currentUser) {
+    console.warn(
+      'Cannot initialize socket: No authenticated user'
+    );
     return null;
   }
 
-  const token = await user.getIdToken();
+  /**
+   * Read auth.currentUser again for each handshake because the signed-in user
+   * may change after the initial socket creation.
+   */
+  const getFreshToken = async () => {
+    const currentUser = auth.currentUser;
 
-  socket = io(SOCKET_URL, createSocketOptions(token));
+    if (!currentUser) {
+      throw new Error('No authenticated user');
+    }
 
-  socket.on('connect', () => {
-  const engine = socket.io.engine;
-  const initialTransport = engine.transport.name;
+    return currentUser.getIdToken();
+  };
 
-  if (import.meta.env.DEV) {
-    console.info(`🔌 Socket connected using ${initialTransport}`);
-  }
+  /**
+   * Keep a stable instance reference for all listeners. The module-level
+   * socket variable may later be cleared by disconnectSocket().
+   */
+  const socketInstance = io(
+    SOCKET_URL,
+    createSocketOptions(getFreshToken)
+  );
 
-  engine.once('upgrade', (transport) => {
+  /**
+   * Assign synchronously before authentication finishes. A second concurrent
+   * initializeSocket() call will now reuse this instance.
+   */
+  socket = socketInstance;
+
+  socketInstance.on('connect', () => {
+    const engine = socketInstance.io.engine;
+    const initialTransport = engine.transport.name;
+
     if (import.meta.env.DEV) {
       console.info(
-        `⬆️ Socket transport upgraded from ${initialTransport} ` +
-          `to ${transport.name}`
+        `🔌 Socket connected using ${initialTransport}`
+      );
+    }
+
+    engine.once('upgrade', (transport) => {
+      if (import.meta.env.DEV) {
+        console.info(
+          `⬆️ Socket transport upgraded from ` +
+            `${initialTransport} to ${transport.name}`
+        );
+      }
+    });
+  });
+
+  socketInstance.io.on(
+    'reconnect_attempt',
+    (attempt) => {
+      if (import.meta.env.DEV) {
+        console.info(
+          `🔄 Socket reconnection attempt ${attempt}`
+        );
+      }
+    }
+  );
+
+  socketInstance.io.on('reconnect', (attempt) => {
+    if (import.meta.env.DEV) {
+      console.info(
+        `✅ Socket reconnected after ${attempt} ` +
+          `attempt(s) using ` +
+          `${socketInstance.io.engine.transport.name}`
       );
     }
   });
-});
 
-socket.io.on('reconnect_attempt', (attempt) => {
-  if (import.meta.env.DEV) {
-    console.info(`🔄 Socket reconnection attempt ${attempt}`);
-  }
-});
+  socketInstance.io.on(
+    'reconnect_error',
+    (error) => {
+      console.warn(
+        'Socket reconnection error:',
+        error.message
+      );
+    }
+  );
 
-socket.io.on('reconnect', (attempt) => {
-  if (import.meta.env.DEV) {
-    console.info(
-      `✅ Socket reconnected after ${attempt} attempt(s) ` +
-        `using ${socket.io.engine.transport.name}`
-    );
-  }
-});
+  socketInstance.io.on(
+    'reconnect_failed',
+    () => {
+      console.error(
+        'Socket reconnection attempts exhausted'
+      );
+    }
+  );
 
-socket.io.on('reconnect_error', (error) => {
-  console.warn('Socket reconnection error:', error.message);
-});
+  socketInstance.on(
+    'connect_error',
+    (error) => {
+      console.error(
+        '❌ Socket connection error:',
+        error.message
+      );
+    }
+  );
 
-socket.io.on('reconnect_failed', () => {
-  console.error('Socket reconnection attempts exhausted');
-});
-
-  socket.on('connect_error', (error) => {
-    console.error('❌ Socket connection error:', error.message);
-  });
-
-  socket.on('error', (error) => {
+  socketInstance.on('error', (error) => {
     console.error('Socket error:', error);
   });
 
-  return socket;
+  return socketInstance;
 };
 
 export const getSocket = () => socket;
