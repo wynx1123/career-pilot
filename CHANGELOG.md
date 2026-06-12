@@ -1,3 +1,10 @@
+# [1.227.0](https://github.com/anurag3407/career-pilot/compare/v1.226.0...v1.227.0) (2026-06-12)
+
+
+### Features
+
+* **portfolio:** add Fluid Simulation 3D WebGL template ([6f98a6f](https://github.com/anurag3407/career-pilot/commit/6f98a6f31d1ccce4e611cf1de478901b4affb4ba))
+
 # [1.226.0](https://github.com/anurag3407/career-pilot/compare/v1.225.0...v1.226.0) (2026-06-12)
 
 
