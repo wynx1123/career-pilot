@@ -1,4 +1,19 @@
 export const templates = [
+
+  {
+  id: "Physics_Engine_Gravity_Drop",
+  title: "Physics Engine Gravity Drop",
+  category: "Portfolio",
+  colorScheme: "Dark",
+  layout: "Interactive",
+  author: "Jainiksha Patel",
+  views: 0,
+  rating: 5.0,
+  image: "/template-previews/Physics_Engine_Gravity_Drop.png",
+  createdAt: "2026-06-13",
+  isComplete: true
+},
+
   {
   "id": "Vercel_Deploy",
   "title": "Vercel Deploy",
