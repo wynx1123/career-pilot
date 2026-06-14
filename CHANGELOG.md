@@ -1,3 +1,17 @@
+# [1.241.0](https://github.com/anurag3407/career-pilot/compare/v1.240.0...v1.241.0) (2026-06-14)
+
+
+### Bug Fixes
+
+* resolve Expected ',' got ':' syntax error in templates.js ([ba57756](https://github.com/anurag3407/career-pilot/commit/ba577569cf546986855741fdde79de2c5eb1cd06))
+* resolve syntax error introduced by upstream sync ([5040806](https://github.com/anurag3407/career-pilot/commit/504080648b89b84211bf91655884efa4a4b64675))
+* resolve templates.js build error ([267ac27](https://github.com/anurag3407/career-pilot/commit/267ac2724fd91aba91c54a5ad2031eeb093ac46d))
+
+
+### Features
+
+* implement AI cold outreach generator with Groq integration and robust rate limit fallback ([b5b1e82](https://github.com/anurag3407/career-pilot/commit/b5b1e825b91911af175239f47f7ed9c371c83f6a))
+
 # [1.240.0](https://github.com/anurag3407/career-pilot/compare/v1.239.2...v1.240.0) (2026-06-14)
 
 
