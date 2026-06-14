@@ -90,6 +90,22 @@ export default function ResumeBuilder() {
   education: 0,
   achievements: 0
 })
+const [careerGoals, setCareerGoals] = useState([
+  {
+    title: "Complete Resume",
+    completed: false
+  },
+  {
+    title: "Add Projects",
+    completed: false
+  },
+  {
+    title: "Improve ATS Score",
+    completed: false
+  }
+])
+
+const [goalProgress, setGoalProgress] = useState(0)
 
   useEffect(() => {
   const suggestions = []
@@ -190,6 +206,38 @@ useEffect(() => {
   education,
   achievementScore
 ])
+
+useEffect(() => {
+  const updatedGoals = [
+    {
+      title: "Complete Resume",
+      completed: resumeScore >= 100
+    },
+    {
+      title: "Add Projects",
+      completed: projects.some(
+        p => p.name.trim()
+      )
+    },
+    {
+      title: "Improve ATS Score",
+      completed: atsScore >= 80
+    }
+  ]
+
+  setCareerGoals(updatedGoals)
+
+  const completed =
+    updatedGoals.filter(
+      g => g.completed
+    ).length
+
+  setGoalProgress(
+    Math.round(
+      (completed / updatedGoals.length) * 100
+    )
+  )
+}, [resumeScore, projects, atsScore])
 
 useEffect(() => {
   let score = 100
@@ -1446,6 +1494,35 @@ useEffect(() => {
     </ul>
   </div>
 )}
+
+<div className="mb-6 p-4 rounded-xl border border-border bg-muted">
+  <div className="flex justify-between items-center mb-2">
+    <h3 className="font-semibold">
+      Career Goal Progress Tracker
+    </h3>
+
+    <span className="text-primary font-bold">
+      {goalProgress}%
+    </span>
+  </div>
+
+  <div className="w-full bg-secondary rounded-full h-3">
+    <div
+      className="bg-primary h-3 rounded-full"
+      style={{
+        width: `${goalProgress}%`
+      }}
+    />
+  </div>
+
+  <div className="mt-4 space-y-2">
+    {careerGoals.map((goal, index) => (
+      <div key={index}>
+        {goal.completed ? "✅" : "⭕"} {goal.title}
+      </div>
+    ))}
+  </div>
+</div>
 
 <div className="bg-background border border-border rounded-xl p-6 h-[500px] overflow-y-auto font-mono text-sm whitespace-pre-wrap">
   {generateMarkdown()}
