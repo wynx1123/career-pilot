@@ -12,6 +12,7 @@ import { toast } from 'react-hot-toast'
 import { cn } from '@/lib/utils'
 import AchievementEnhancer from "../components/resume/AchievementEnhancer";
 import PhoneInput from '../components/PhoneInput'
+import { getSectionOrderSuggestions } from "../utils/sectionReorderAnalyzer";
 import {
   validatePersonalStep,
   validateEducationStep,
@@ -57,6 +58,7 @@ export default function ResumeBuilder() {
   const [achievementSuggestions, setAchievementSuggestions] = useState([])
   const [toneScore, setToneScore] = useState(100)
   const [toneSuggestions, setToneSuggestions] = useState([])
+  const [sectionSuggestions, setSectionSuggestions] = useState([]);
   
 
   // ── form state ──────────────────────────────────────────────────────────────
@@ -1210,6 +1212,20 @@ useEffect(() => {
         </span>
       ))}
     </div>
+  </div>
+)}
+
+{sectionSuggestions.length > 0 && (
+  <div className="mb-6 p-4 rounded-xl border border-border bg-muted">
+    <h3 className="font-semibold mb-3">
+      Resume Section Reordering Suggestions
+    </h3>
+
+    <ul className="list-disc list-inside text-sm text-muted-foreground">
+      {sectionSuggestions.map((item, index) => (
+        <li key={index}>{item}</li>
+      ))}
+    </ul>
   </div>
 )}
 
