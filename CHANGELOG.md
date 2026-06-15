@@ -1,3 +1,39 @@
+# [1.248.0](https://github.com/anurag3407/career-pilot/compare/v1.247.0...v1.248.0) (2026-06-15)
+
+
+### Bug Fixes
+
+* remove duplicate React import ([83bf86d](https://github.com/anurag3407/career-pilot/commit/83bf86d603d67241595231de9d22f0f2aa8738bb))
+
+
+### Features
+
+* add portfolio content quality analyzer ([165b398](https://github.com/anurag3407/career-pilot/commit/165b3983ec014fcb18f07febd9507fdaa15b475e))
+
+# [1.247.0](https://github.com/anurag3407/career-pilot/compare/v1.246.1...v1.247.0) (2026-06-15)
+
+
+### Features
+
+* add portfolio project highlight recommendations ([255429b](https://github.com/anurag3407/career-pilot/commit/255429b1adb94b2f997d4061b0a3ad3fdc11972c))
+* add smart certification recommendation assistant ([168a95a](https://github.com/anurag3407/career-pilot/commit/168a95ab27a7a34cbd40be9c412416a9ab24ef0e))
+
+## [1.246.1](https://github.com/anurag3407/career-pilot/compare/v1.246.0...v1.246.1) (2026-06-15)
+
+
+### Bug Fixes
+
+* theme variables, scrollbar cleanup, and glow effects in index.css ([4c7a80c](https://github.com/anurag3407/career-pilot/commit/4c7a80c2549d25c11c46e8c16a242e42ea422feb))
+
+# [1.246.0](https://github.com/anurag3407/career-pilot/compare/v1.245.0...v1.246.0) (2026-06-15)
+
+
+### Features
+
+* add staging deployment github action [#2791](https://github.com/anurag3407/career-pilot/issues/2791) ([8ad39c9](https://github.com/anurag3407/career-pilot/commit/8ad39c9437ae0af0b5be579e183626b086adaa58))
+* add staging deployment workflow [#2791](https://github.com/anurag3407/career-pilot/issues/2791) ([2ce6491](https://github.com/anurag3407/career-pilot/commit/2ce6491c103c83f53a67c27b80604c67f2d5ce28))
+* add staging deployment workflow [#2791](https://github.com/anurag3407/career-pilot/issues/2791) ([158999f](https://github.com/anurag3407/career-pilot/commit/158999f8b81a30b7a44f89ac0f485e84c9a7affc))
+
 # [1.245.0](https://github.com/anurag3407/career-pilot/compare/v1.244.3...v1.245.0) (2026-06-15)
 
 
