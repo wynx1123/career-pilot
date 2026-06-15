@@ -1,3 +1,15 @@
+# [1.248.0](https://github.com/anurag3407/career-pilot/compare/v1.247.0...v1.248.0) (2026-06-15)
+
+
+### Bug Fixes
+
+* remove duplicate React import ([83bf86d](https://github.com/anurag3407/career-pilot/commit/83bf86d603d67241595231de9d22f0f2aa8738bb))
+
+
+### Features
+
+* add portfolio content quality analyzer ([165b398](https://github.com/anurag3407/career-pilot/commit/165b3983ec014fcb18f07febd9507fdaa15b475e))
+
 # [1.247.0](https://github.com/anurag3407/career-pilot/compare/v1.246.1...v1.247.0) (2026-06-15)
 
 
