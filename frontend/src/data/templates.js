@@ -1348,6 +1348,18 @@ rating: 4.8,
     "createdAt": "2026-06-15"
   },
   {
+    "id": "ChiragChrg_Theme",
+    "title": "ChiragChrg Theme",
+    "category": "Portfolio",
+    "colorScheme": "Dark",
+    "layout": "Single Page",
+    "author": "System",
+    "views": 999999990,
+    "rating": 5.0,
+    "image": "/template-previews/ChiragChrg_Theme.png",
+    "createdAt": "2026-06-15"
+  },
+  {
     "id": "Glassmorphism",
     "title": "Glassmorphism",
     "category": "Portfolio",

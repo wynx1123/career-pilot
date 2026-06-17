@@ -128,6 +128,7 @@ import SommelierWineCellarRacks from './components/portfolio/templates/Sommelier
 import SharedResumeView from './pages/SharedResumeView.jsx'
 import MinimalDarkFluid from './components/portfolio/templates/Minimal_Dark_Fluid/index.jsx';
 import TerminalSkills from './components/portfolio/templates/Terminal_Skills/index.jsx';
+import ChiragChrgTheme from './components/portfolio/templates/ChiragChrg_Theme/index.jsx';
 
 function LoadingScreen({ label }) {
   return (
@@ -303,6 +304,7 @@ function AppRoutes() {
         <Route path="/templates/sommelier-wine-cellar-racks" element={<SommelierWineCellarRacks />} />
         <Route path="/templates/minimal-dark-fluid" element={<MinimalDarkFluid />} />
         <Route path="/templates/terminal-skills" element={<TerminalSkills />} />
+        <Route path="/templates/chiragchrg-theme" element={<ChiragChrgTheme />} />
         {/* Core Protected Routes */}
         <Route 
   path="/dashboard" 
