@@ -1,3 +1,10 @@
+# [1.256.0](https://github.com/anurag3407/career-pilot/compare/v1.255.0...v1.256.0) (2026-06-20)
+
+
+### Features
+
+* add resume industry specific optimization mode ([#4223](https://github.com/anurag3407/career-pilot/issues/4223)) ([559c6c7](https://github.com/anurag3407/career-pilot/commit/559c6c724bccf8fcfd490b1906e8338b39e8cdf8))
+
 # [1.255.0](https://github.com/anurag3407/career-pilot/compare/v1.254.0...v1.255.0) (2026-06-20)
 
 
