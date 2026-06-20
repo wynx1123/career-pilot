@@ -1,3 +1,10 @@
+## [1.251.1](https://github.com/anurag3407/career-pilot/compare/v1.251.0...v1.251.1) (2026-06-20)
+
+
+### Bug Fixes
+
+* use AppErrorBoundary at application root ([#4233](https://github.com/anurag3407/career-pilot/issues/4233)) ([63ebb9e](https://github.com/anurag3407/career-pilot/commit/63ebb9e6fd38b97193e218ba433b53d2d210c016))
+
 # [1.251.0](https://github.com/anurag3407/career-pilot/compare/v1.250.1...v1.251.0) (2026-06-20)
 
 
