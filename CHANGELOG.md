@@ -1,3 +1,10 @@
+# [1.257.0](https://github.com/anurag3407/career-pilot/compare/v1.256.0...v1.257.0) (2026-06-21)
+
+
+### Features
+
+* add live password strength indicator to Register page ([#4184](https://github.com/anurag3407/career-pilot/issues/4184)) ([3d355ca](https://github.com/anurag3407/career-pilot/commit/3d355caafff4d9302dc2ff60d057a403e671a3a3))
+
 # [1.256.0](https://github.com/anurag3407/career-pilot/compare/v1.255.0...v1.256.0) (2026-06-20)
 
 
