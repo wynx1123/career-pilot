@@ -1,3 +1,10 @@
+# [1.261.0](https://github.com/anurag3407/career-pilot/compare/v1.260.1...v1.261.0) (2026-06-22)
+
+
+### Features
+
+* integrate saved resumes into Cover Letter Generator ([#4205](https://github.com/anurag3407/career-pilot/issues/4205)) ([0e9851b](https://github.com/anurag3407/career-pilot/commit/0e9851bb6e9419abe70951a3bb504066d93a84e1))
+
 ## [1.260.1](https://github.com/anurag3407/career-pilot/compare/v1.260.0...v1.260.1) (2026-06-22)
 
 
