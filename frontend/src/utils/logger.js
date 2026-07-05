@@ -51,10 +51,6 @@ const logger = {
       });
     }
 
-    // Alternative: if @sentry/browser is used as ES module import
-    if (typeof window !== 'undefined' && window.__SENTRY__) {
-      window.__SENTRY__.captureException(error || new Error(message));
-    }
   },
 
   /**
